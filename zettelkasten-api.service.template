@@ -1,0 +1,16 @@
+[Unit]
+Description=Zettelkasten FastAPI Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=__REPO_DIR__
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+EnvironmentFile=__REPO_DIR__/.env
+
+[Install]
+WantedBy=default.target

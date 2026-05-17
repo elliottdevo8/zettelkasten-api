@@ -1,0 +1,16 @@
+[Unit]
+Description=Zettelkasten FastAPI Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Documents/SelfDevelopment/scripts/zettelkasten-api
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:%h/Documents/SelfDevelopment/logs/zettelkasten-api.log
+StandardError=append:%h/Documents/SelfDevelopment/logs/zettelkasten-api.log
+EnvironmentFile=%h/Documents/SelfDevelopment/scripts/zettelkasten-api/.env
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Zettelkasten Auto-Capture (RSS + Daily Journal)
+After=zettelkasten-api.service
+Requires=zettelkasten-api.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=__REPO_DIR__
+ExecStart=/usr/bin/python3 capture-daily-journal.py
+ExecStart=/usr/bin/python3 capture-rss.py
+StandardOutput=journal
+StandardError=journal
+EnvironmentFile=__REPO_DIR__/.env
