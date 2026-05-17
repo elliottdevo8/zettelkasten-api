@@ -133,7 +133,7 @@ Two capture scripts run on a systemd timer (daily at 07:00):
 
 ## Note Types
 
-Notes are written to the Zettelkasten directory automatically by type:
+The API writes notes to the Zettelkasten directory by type:
 
 | Type | Directory | Use |
 |------|-----------|-----|
